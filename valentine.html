@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Be My Valentine 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Segoe UI', sans-serif;
+            overflow: hidden;
+        }
+
+        .card {
+            background: white;
+            padding: 40px 50px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            max-width: 350px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #ff4d6d;
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        p {
+            font-size: 17px;
+            color: #555;
+            margin-bottom: 25px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.5s ease;
+        }
+
+        button {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .yes-btn {
+            background: #ff4d6d;
+            color: white;
+        }
+
+        .yes-btn:hover {
+            background: #ff1f4a;
+            transform: scale(1.1);
+        }
+
+        .no-btn {
+            background: #ddd;
+            color: #333;
+        }
+
+        /* Second Screen */
+        .second-screen {
+            display: none;
+            animation: fadeIn 1.5s ease forwards;
+        }
+
+        .enter-btn {
+            margin-top: 25px;
+            background: #ff4d6d;
+            color: white;
+            font-size: 17px;
+        }
+
+        .enter-btn:hover {
+            background: #ff1f4a;
+            transform: scale(1.1);
+        }
+
+        /* Hearts */
+        .heart {
+            position: absolute;
+            color: rgba(255,255,255,0.7);
+            font-size: 20px;
+            animation: float 5s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(-10vh); opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="card">
+
+    <!-- First Screen -->
+    <div id="first">
+
+        <h1>💖 Will You Be My Valentine? 💖</h1>
+        <p>You make my world more beautiful every day.</p>
+
+        <div class="buttons" id="btnGroup">
+
+            <button class="yes-btn" id="yesBtn" onclick="goNext()">
+                Yes 💕
+            </button>
+
+            <button class="no-btn" id="noBtn"
+                onmouseover="removeNo()"
+                onclick="removeNo()">
+                No 😅
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- Second Screen -->
+    <div class="second-screen" id="second">
+
+        <h1>✨ Press Button to Enter OUR DREAMY WORLD ✨</h1>
+
+        <button class="enter-btn" onclick="enterWorld()">
+            Enter 💘
+        </button>
+
+    </div>
+
+</div>
+
+<script>
+
+    function removeNo() {
+
+        const noBtn = document.getElementById("noBtn");
+        const btnGroup = document.getElementById("btnGroup");
+
+        // Hide No button
+        noBtn.style.display = "none";
+
+        // Center Yes button
+        btnGroup.style.justifyContent = "center";
+    }
+
+    function goNext() {
+
+        document.getElementById("first").style.opacity = "0";
+
+        setTimeout(() => {
+            document.getElementById("first").style.display = "none";
+            document.getElementById("second").style.display = "block";
+        }, 1000);
+    }
+
+    function enterWorld() {
+        window.location.href = "index.html";
+    }
+
+    // Floating hearts
+    function createHeart() {
+
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = Math.random() * 3 + 3 + "s";
+        heart.style.fontSize = Math.random() * 15 + 15 + "px";
+
+        document.body.appendChild(heart);
+
+        setTimeout(() => {
+            heart.remove();
+        }, 5000);
+    }
+
+    setInterval(createHeart, 500);
+
+</script>
+
+</body>
+</html>
