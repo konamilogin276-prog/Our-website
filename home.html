@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hamro Katha</title>
+
+<!-- Font Awesome for icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+*{
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    margin:0;
+    min-height:100vh;
+    background:
+    linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),
+    url("https://images.unsplash.com/photo-1501973801540-537f08ccae7b") no-repeat center/cover;
+    color:white;
+}
+
+/* Marquee */
+.marquee{
+    background:rgba(0,0,0,0.6);
+    padding:15px;
+    font-size:28px;
+    font-weight:bold;
+    overflow:hidden;
+    white-space:nowrap;
+}
+
+.marquee span{
+    display:inline-block;
+    padding-left:100%;
+    animation: scroll 12s linear infinite;
+}
+
+@keyframes scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-100%);}
+}
+
+/* Main container */
+.container{
+    width:90%;
+    margin:auto;
+    padding:30px 0;
+}
+
+/* Cards layout */
+.content{
+    display:flex;
+    gap:30px;
+    flex-wrap:wrap;
+    justify-content:space-between;
+}
+
+.profile{
+    display:flex;
+    gap:20px;
+}
+
+.card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter: blur(8px);
+    border-radius:15px;
+    padding:15px;
+    width:220px;
+    text-align:center;
+    animation: fadeUp 1s ease;
+}
+
+.card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+}
+
+@keyframes fadeUp{
+    from{opacity:0; transform:translateY(40px);}
+    to{opacity:1; transform:translateY(0);}
+}
+
+/* Right buttons */
+.actions{
+    min-width:260px;
+}
+
+.action-btn{
+    background:linear-gradient(135deg,#ff9966,#ff5e62);
+    padding:15px;
+    border-radius:30px;
+    text-align:center;
+    margin-bottom:20px;
+    transition:0.3s;
+}
+
+.action-btn a{
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    display:block;
+}
+
+.action-btn:hover{
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* Social section */
+.social{
+    margin-top:50px;
+    text-align:center;
+    animation: fadeUp 1.5s ease;
+}
+
+.social h2{
+    margin-bottom:15px;
+}
+
+.social a{
+    color:white;
+    font-size:28px;
+    margin:0 12px;
+    transition:0.3s;
+}
+
+.social a:hover{
+    color:#ffcc70;
+    transform:scale(1.3);
+}
+
+/* Mobile */
+@media(max-width:900px){
+    .content{flex-direction:column; align-items:center;}
+    .profile{flex-direction:column;}
+}
+/* Instagram Circle Button */
+.insta-btn{
+    display:inline-flex;
+    justify-content:center;
+    align-items:center;
+
+    width:36px;
+    height:36px;
+
+    background:linear-gradient(135deg,#f58529,#dd2a7b,#8134af);
+    color:white;
+
+    border-radius:50%;
+    font-size:18px;
+
+    margin:8px 0 5px;
+
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.insta-btn:hover{
+    transform:scale(1.2) rotate(10deg);
+    box-shadow:0 0 12px rgba(255,255,255,0.6);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="marquee">
+    <span>❤️ Hamro Katha – A Beautiful Journey Together ❤️</span>
+</div>
+
+<div class="container">
+
+    <div class="content">
+
+        <!-- Profiles -->
+        <div class="profile">
+
+            <div class="card">
+    <img src="Prashant.jpg" alt="Him Photo" width="200">
+    <h3>Him</h3>
+<p>Confident | Dreamy | Fearless💕</p>
+<a href="https://instagram.com/prashantgiri.12" target="_blank" class="insta-btn">
+    <i class="fab fa-instagram"></i>
+</a>
+</div>
+
+
+           <div class="card">
+    <img src="Babina.jpeg" alt="Her Photo" width="200">
+    <h3>Her</h3>
+    <p>Beautiful soul,kind heart💕</p>
+    <a href="https://instagram.com/babina.giri" target="_blank" class="insta-btn">
+    <i class="fab fa-instagram"></i>
+</a>
+</div>
+
+        </div>
+
+        <!-- Buttons -->
+        <div class="actions">
+
+            <div class="action-btn">
+                <a href="dream.html" target="_blank">🌅 Our Dream</a>
+            </div>
+
+            <div class="action-btn">
+                <a href="herfamily.html" target="_blank">👨‍👩‍👧 Her Family</a>
+            </div>
+
+            <div class="action-btn">
+                <a href="myfamily.html" target="_blank">👨‍👩‍👦 My Family</a>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Social -->
+    <div class="social">
+        <h2>Connect With Us</h2>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+    </div>
+
+</div>
+
+</body>
+</html>
